@@ -32,6 +32,13 @@ install(
     INCLUDES DESTINATION include
 )
 
+install(
+    DIRECTORY bin/
+    DESTINATION bin
+    FILES_MATCHING PATTERN "*.sh"
+    PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
+)
+
 ament_export_include_directories(include)
 ament_export_dependencies(ament_cmake rclcpp sh_common Boost jsoncpp)
 ament_export_libraries(find_base_node)
